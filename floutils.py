@@ -8,7 +8,6 @@ errors_dict = {
 }
 
 
-@st.cache_resource
 def get_tf_idf_results(from_list, to_list):
     model_tf_idf = PolyFuzz("TF-IDF").match(from_list, to_list)
     df_tf_idf = model_tf_idf.get_matches()
@@ -19,7 +18,6 @@ def get_tf_idf_results(from_list, to_list):
     return df_tf_idf
 
 
-@st.cache_resource
 def get_all_minilm_l6_v2_results(from_list, to_list):
     distance_model = SentenceEmbeddings("all-MiniLM-L6-v2")
     model_data = PolyFuzz(distance_model).match(from_list, to_list)
@@ -31,7 +29,6 @@ def get_all_minilm_l6_v2_results(from_list, to_list):
     return df_minilm
 
 
-@st.cache_resource
 def all_mpnet_base_v2(from_list, to_list):
     distance_model = SentenceEmbeddings("all-mpnet-base-v2")
     model_data = PolyFuzz(distance_model).match(from_list, to_list)
@@ -43,7 +40,6 @@ def all_mpnet_base_v2(from_list, to_list):
     return df_mpnet
 
 
-@st.cache_resource
 def display_all_dfs(df_1, df_2, df_3):
     df_final = df_1
     df_final.rename(columns={"Similarity": "TF-IDF"}, inplace=True)

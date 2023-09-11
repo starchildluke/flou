@@ -21,7 +21,7 @@ if data:
     )
     generate = st.button("Generate")
 
-    if generate and __name__ == "__main__":
+    if generate:
         try:
             secondary_strings_list = strings_to_match.split("\n")
             from_list = [primary_string for primary_string in primary_strings_list]
